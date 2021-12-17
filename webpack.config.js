@@ -84,6 +84,31 @@ module.exports = async env => {
         }
     };
 
+    config.module.rules.push({
+        test: /\.s[ca]ss$/i,
+        use: [
+            'style-loader',
+            {
+                loader: 'css-loader',
+                options: {
+                    modules: true
+                }
+            },
+            {
+                loader: 'sass-loader',
+                options: {
+                    additionalData: `
+                    @import "_vars";
+                    @import "_mixins";
+                `,
+                    sassOptions: {
+                        includePaths: ['src/scss']
+                    }
+                }
+            }
+        ]
+    });
+
     // Strip UPWARD mustache from template file during watch
     if (
         process.env.npm_lifecycle_event &&
@@ -107,6 +132,9 @@ module.exports = async env => {
              * Make sure to add the same constants to
              * the globals object in jest.config.js.
              */
+
+            HELLO_WORLD: JSON.stringify(process.env.HELLO_WORLD),
+
             POSSIBLE_TYPES: JSON.stringify(possibleTypes),
             STORE_NAME: availableStore
                 ? JSON.stringify(availableStore.store_name)
@@ -176,5 +204,5 @@ module.exports = async env => {
         })
     );
 
-    return [config, serverConfig];
+    return [config];
 };

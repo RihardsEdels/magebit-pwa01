@@ -1,0 +1,6 @@
+{
+  "babel": {
+    "presets": ["@magento/pwa"]
+  },
+  "plugins": ["jsdom-quokka-plugin"]
+}

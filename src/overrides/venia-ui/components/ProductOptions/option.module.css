@@ -1,0 +1,50 @@
+.root {
+    border-bottom: 1px solid rgb(var(--venia-global-color-border));
+    /* margin: 0 1.5rem; */
+    padding: 1.75rem 0;
+}
+
+@media (min-width: 1024px) {
+    .root {
+        border: 0;
+    }
+}
+
+.title {
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+    display: block;
+}
+@media (min-width: 1024px) {
+    .title {
+        /* font-family: Proxima Nova; */
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 24px;
+        letter-spacing: 0em;
+        text-align: left;
+    }
+
+    .selectionLabel {
+        /* font-family: Proxima Nova; */
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 24px;
+        letter-spacing: 0em;
+        text-align: left;
+    }
+    .selectionLabel {
+        margin-right: 0.5rem;
+    }
+}
+
+.selection {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-top: 1rem;
+    display: flex;
+}

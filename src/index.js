@@ -7,6 +7,9 @@ import Adapter from '@magento/venia-ui/lib/components/Adapter';
 import { registerSW } from './registerSW';
 import './index.css';
 
+import { AppContextProvider } from '@magento/venia-ui/lib/components/App';
+import App from './components/App';
+
 // server rendering differs from browser rendering
 const isServer = !globalThis.document;
 
@@ -18,7 +21,13 @@ const origin = isServer
 // on the server, components add styles to this set and we render them in bulk
 const styles = new Set();
 
-const tree = <Adapter origin={origin} store={store} styles={styles} />;
+const tree = (
+    <Adapter origin={origin} store={store} styles={styles}>
+        <AppContextProvider>
+            <App />
+        </AppContextProvider>
+    </Adapter>
+);
 
 if (isServer) {
     // TODO: ensure this actually renders correctly

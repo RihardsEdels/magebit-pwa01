@@ -28,7 +28,10 @@
     "@magento/venia-drivers": "src/drivers"
   },
   "dependencies": {
-    "@magento/pwa-buildpack": "~11.0.0"
+    "@babel/register": "^7.16.0",
+    "@magebit/pwa-studio-override-resolver": "file:packages/@magebit/pwa-studio-override-resolver",
+    "@magento/pwa-buildpack": "q~11.0.0",
+    "jsdom-quokka-plugin": "^1.0.16"
   },
   "devDependencies": {
     "@adobe/apollo-link-mutation-queue": "~1.0.2",
@@ -65,6 +68,7 @@
     "css-loader": "~5.2.7",
     "dotenv": "~6.2.0",
     "eslint": "~7.32.0",
+    "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-babel": "~5.3.0",
     "eslint-plugin-graphql": "~4.0.0",
     "eslint-plugin-jsx-a11y": "~6.4.1",
@@ -88,6 +92,7 @@
     "memoize-one": "~5.0.0",
     "memory-fs": "~0.4.1",
     "node-fetch": "~2.3.0",
+    "node-sass": "^6.0.0",
     "postcss": "~8.3.6",
     "postcss-loader": "~4.3.0",
     "prettier": "~1.16.4",
@@ -105,6 +110,7 @@
     "redux-actions": "~2.6.4",
     "redux-thunk": "~2.3.0",
     "rimraf": "~2.6.3",
+    "sass-loader": "^10.1.0",
     "style-loader": "~2.0.0",
     "subscriptions-transport-ws": "~0.9.19",
     "tailwindcss": "~2.2.7",
@@ -120,8 +126,7 @@
     "workbox-precaching": "~6.2.4",
     "workbox-routing": "~6.2.4",
     "workbox-strategies": "~6.2.4",
-    "workbox-webpack-plugin": "~6.2.4",
-    "@magento/venia-sample-backends": "~0.0.1"
+    "workbox-webpack-plugin": "~6.2.4"
   },
   "optionalDependencies": {
     "sharp": "~0.29.0"
@@ -132,7 +137,7 @@
   },
   "pwa-studio": {
     "targets": {
-      "intercept": "./local-intercept.js"
+      "intercept": "src/targets/local-intercept.js"
     }
   }
 }
