@@ -2,7 +2,7 @@ import React, { Fragment, Suspense } from 'react';
 import { FormattedMessage, useIntl } from 'react-intl';
 import { arrayOf, bool, number, shape, string } from 'prop-types';
 import { Form } from 'informed';
-import { Info } from 'react-feather';
+import { Info, ShoppingBag } from 'react-feather';
 
 import Price from '@magento/venia-ui/lib/components/Price';
 import { useProductFullDetail } from '../../../peregrine/lib/talons/ProductFullDetail/useProductFullDetail';
@@ -10,17 +10,17 @@ import { isProductConfigurable } from '@magento/peregrine/lib/util/isProductConf
 
 import { useStyle } from '@magento/venia-ui/lib/classify';
 import Breadcrumbs from '@magento/venia-ui/lib/components/Breadcrumbs';
-import Button from '@magento/venia-ui/lib/components/Button';
+import Button from '../../../../components/Button/button';
 import Carousel from '@magento/venia-ui/lib/components/ProductImageCarousel';
 import FormError from '@magento/venia-ui/lib/components/FormError';
 import { QuantityFields } from '../CartPage/ProductListing/quantity';
 import RichContent from '@magento/venia-ui/lib/components/RichContent/richContent';
 import { ProductOptionsShimmer } from '@magento/venia-ui/lib/components/ProductOptions';
 import defaultClasses from './productFullDetail.module.css';
+import CmsBlock from '../CmsBlock/cmsBlock';
 
-const WishlistButton = React.lazy(() =>
-    import('@magento/venia-ui/lib/components/Wishlist/AddToListButton')
-);
+import Tabs from '../../../../components/Tabs/tabs';
+
 const Options = React.lazy(() =>
     import('@magento/venia-ui/lib/components/ProductOptions')
 );
@@ -42,6 +42,12 @@ const ERROR_FIELD_TO_MESSAGE_MAPPING = {
 const ProductFullDetail = props => {
     const { product } = props;
 
+    const [tabs, setTabs] = React.useState('tab1');
+
+    const handleTabs = e => {
+        setTabs(e.target.id);
+    };
+
     const talonProps = useProductFullDetail({ product });
 
     const {
@@ -53,8 +59,7 @@ const ProductFullDetail = props => {
         isAddToCartDisabled,
         isSupportedProductType,
         mediaGalleryEntries,
-        productDetails,
-        wishlistButtonProps
+        productDetails
     } = talonProps;
     const { formatMessage } = useIntl();
 
@@ -133,17 +138,18 @@ const ProductFullDetail = props => {
     const cartCallToActionText = !isOutOfStock ? (
         <FormattedMessage
             id="productFullDetail.addItemToCart"
-            defaultMessage="Add to Cart"
+            defaultMessage="Add to cart"
         />
     ) : (
         <FormattedMessage
             id="productFullDetail.itemOutOfStock"
-            defaultMessage="Out of Stock"
+            defaultMessage="Out of stock"
         />
     );
 
     const cartActionContent = isSupportedProductType ? (
         <Button disabled={isAddToCartDisabled} priority="high" type="submit">
+            <ShoppingBag />
             {cartCallToActionText}
         </Button>
     ) : (
@@ -180,7 +186,7 @@ const ProductFullDetail = props => {
                     <Carousel images={mediaGalleryEntries} />
                 </section>
                 <section className={classes.product_details}>
-                    <RichContent html={productDetails.shortDescription.html} />
+                    <RichContent html={productDetails.description} />
                 </section>
                 <FormError
                     classes={{
@@ -189,13 +195,11 @@ const ProductFullDetail = props => {
                     errors={errors.get('form') || []}
                 />
                 <section className={classes.options}>{options}</section>
+                <section className={classes.shipping_container}>
+                    <CmsBlock identifiers={'shipping'} />
+                </section>
+
                 <section className={classes.quantity}>
-                    <span className={classes.quantityTitle}>
-                        <FormattedMessage
-                            id={'global.quantity'}
-                            defaultMessage={'Quantity'}
-                        />
-                    </span>
                     <QuantityFields
                         classes={{ root: classes.quantityRoot }}
                         min={1}
@@ -204,27 +208,20 @@ const ProductFullDetail = props => {
                 </section>
                 <section className={classes.actions}>
                     {cartActionContent}
-                    <Suspense fallback={null}>
-                        <WishlistButton {...wishlistButtonProps} />
-                    </Suspense>
                 </section>
                 <section className={classes.description}>
-                    <span className={classes.descriptionTitle}>
-                        <FormattedMessage
-                            id={'productFullDetail.productDescription'}
-                            defaultMessage={'Product Description'}
+                    <Tabs tabs={tabs} handleTabs={handleTabs} />
+                    {tabs === 'tab1' ? (
+                        <RichContent
+                            html={productDetails.shortDescription.html}
                         />
-                    </span>
-                    <RichContent html={productDetails.description} />
-                </section>
-                <section className={classes.details}>
-                    <span className={classes.detailsTitle}>
-                        <FormattedMessage
-                            id={'global.sku'}
-                            defaultMessage={'SKU'}
-                        />
-                    </span>
-                    <strong>{productDetails.sku}</strong>
+                    ) : (
+                        <ul>
+                            <li>attr1: {productDetails.attr1}</li>
+                            <li>attr2: {productDetails.attr2}</li>
+                            <li>attr3: {productDetails.attr3}</li>
+                        </ul>
+                    )}
                 </section>
             </Form>
         </Fragment>

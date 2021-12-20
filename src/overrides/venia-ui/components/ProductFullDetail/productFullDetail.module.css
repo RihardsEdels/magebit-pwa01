@@ -8,21 +8,18 @@
         display: grid;
         grid-auto-flow: row;
         grid-template-areas:
-            /* 'images title'
-            'images errors'
-            'images options'
-            'images quantity'
-            'images cart'
-            'images .'; */
             'images title'
             'images product_details'
             'images options'
+            'images shipping'
             'images quantity'
-            'images cart'
-            'images .';
-        grid-template-columns: 1fr 737px;
+            'images cart';
+
+        grid-template-columns: 689px 737px;
+        column-gap: 5px;
+
         grid-template-rows: repeat(5, min-content) 1fr [fold];
-        padding: 2.5rem 1rem;
+        padding: 0.5rem 1.4rem;
     }
 }
 
@@ -34,7 +31,7 @@
     .product_details {
         display: block;
         grid-area: product_details;
-        /* font-family: Proxima Nova; */
+        font-family: proxima-nova, sans-serif;
         font-size: 14px;
         font-style: normal;
         font-weight: 400;
@@ -48,8 +45,37 @@
         margin: 0 1.5rem;
     }
 
-    .product_details p:last-of-type {
+    .product_details p:first-child {
+        margin-bottom: 1.5rem;
+    }
+
+    .product_details p:not(:first-child) {
         display: none;
+    }
+
+    .product_details ul {
+        padding-left: 16px;
+        margin-bottom: 25px;
+    }
+
+    .product_details ul li {
+        font-family: proxima-nova, sans-serif;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 20px;
+        letter-spacing: 0em;
+        text-align: left;
+    }
+
+    .shipping_container {
+        grid-area: shipping;
+        margin: 0 1.5rem;
+        width: 689px;
+        height: 100px;
+        display: flex;
+
+        background: #f4f5f5;
     }
 }
 
@@ -83,6 +109,7 @@
 @media (min-width: 1024px) {
     .title {
         padding: 1.5rem;
+        padding-bottom: 1.2rem;
     }
 }
 
@@ -93,7 +120,7 @@
 
 @media (min-width: 1024px) {
     .productName {
-        /* font-family: Proxima Nova; */
+        font-family: proxima-nova, sans-serif;
         font-size: 32px;
         font-style: normal;
         font-weight: 400;
@@ -105,7 +132,7 @@
 
 .productPrice {
     display: block;
-    /* font-family: Proxima Nova; */
+    font-family: proxima-nova, sans-serif;
     font-size: 32px;
     font-style: normal;
     font-weight: 600;
@@ -138,11 +165,11 @@
 @media (min-width: 1024px) {
     .options {
         display: flex;
-        justify-content: space-between;
         border-color: rgb(var(--venia-global-color-border));
         border-style: solid;
         border-width: 0 0 1px;
         margin: 0 1.5rem;
+        margin-bottom: 30px;
     }
 }
 
@@ -171,13 +198,14 @@
 
 @media (min-width: 1024px) {
     .actions {
+        padding-top: 0;
         border-bottom-width: 0;
     }
 }
 
 .description {
     composes: section;
-    grid-column: 1 / span 1;
+    grid-column: 1 / span 2;
     grid-row: fold / span 1;
 }
 
@@ -186,13 +214,8 @@
         align-self: stretch;
         border-top-width: 1px;
         margin: 0;
-        padding-left: 1.5rem;
         padding-right: 1.5rem;
     }
-}
-
-.descriptionTitle {
-    composes: sectionTitle;
 }
 
 .details {
@@ -229,6 +252,7 @@
     composes: root from '../CartPage/ProductListing/quantity.module.css';
     grid-template-columns: auto 4rem auto;
     justify-content: start;
+    margin-top: 5px;
 }
 
 .unavailableContainer {

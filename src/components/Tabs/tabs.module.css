@@ -1,0 +1,33 @@
+.tabs {
+    display: flex;
+    flex-direction: row;
+}
+
+.descriptionTitleactive {
+    align-items: center;
+    display: flex;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+    width: 182px;
+    height: 58px;
+
+    background: #f4f5f5;
+    border: 1px solid #dfe1e2;
+    justify-content: center;
+}
+.descriptionTitle {
+    align-items: center;
+    display: flex;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+    width: 171px;
+    height: 58px;
+
+    background: #ffffff;
+    border: 1px solid #dfe1e2;
+    justify-content: center;
+}

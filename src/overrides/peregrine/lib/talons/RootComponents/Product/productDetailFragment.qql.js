@@ -10,15 +10,22 @@ export const ProductDetailsFragment = gql`
                 category_id
             }
         }
+
         description {
             html
         }
+
         short_description {
             html
         }
 
+        attr1
+        attr2
+        attr3
+
         id
         uid
+
         media_gallery_entries {
             # id is deprecated and unused in our code, but lint rules require we
             # request it if available
@@ -45,6 +52,7 @@ export const ProductDetailsFragment = gql`
         }
         stock_status
         url_key
+
         ... on ConfigurableProduct {
             configurable_options {
                 attribute_code

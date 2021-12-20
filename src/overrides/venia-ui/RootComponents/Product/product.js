@@ -23,8 +23,6 @@ const Product = props => {
         mapProduct
     });
 
-    console.log('product');
-
     const { error, loading, product } = talonProps;
 
     if (loading && !product)

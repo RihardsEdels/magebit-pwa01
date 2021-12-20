@@ -10,7 +10,7 @@
 @media (min-width: 1024px) {
     .root {
         border: 0;
-        border-radius: 10px;
+        border: 1px solid #dfe1e2;
     }
 }
 

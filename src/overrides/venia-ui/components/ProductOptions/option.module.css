@@ -1,7 +1,8 @@
 .root {
     border-bottom: 1px solid rgb(var(--venia-global-color-border));
     /* margin: 0 1.5rem; */
-    padding: 1.75rem 0;
+    padding-top: 1.9rem;
+    padding-bottom: 1.75rem;
 }
 
 @media (min-width: 1024px) {
@@ -14,12 +15,15 @@
     font-size: 1rem;
     font-weight: 600;
     line-height: 1.5;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
     display: block;
 }
 @media (min-width: 1024px) {
+    .root {
+        width: 337px;
+    }
     .title {
-        /* font-family: Proxima Nova; */
+        font-family: proxima-nova, sans-serif;
         font-size: 16px;
         font-style: normal;
         font-weight: 600;
@@ -29,7 +33,7 @@
     }
 
     .selectionLabel {
-        /* font-family: Proxima Nova; */
+        font-family: proxima-nova, sans-serif;
         font-size: 16px;
         font-style: normal;
         font-weight: 400;

@@ -422,15 +422,17 @@ export const useProductFullDetail = props => {
     );
 
     // Normalization object for product details we need for rendering.
+
     const productDetails = {
         description: product.description,
         shortDescription: product.short_description,
         name: product.name,
         price: productPrice,
-        sku: product.sku
+        sku: product.sku,
+        attr1: product.attr1,
+        attr2: product.attr2,
+        attr3: product.attr3
     };
-
-    console.log('useProductFullDetail', productDetails);
 
     const derivedErrorMessage = useMemo(
         () =>

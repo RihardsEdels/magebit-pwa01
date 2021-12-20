@@ -26,8 +26,6 @@ import DEFAULT_OPERATIONS from './product.qql';
 export const useProduct = props => {
     const { mapProduct } = props;
 
-    console.log('useProduct');
-
     const operations = mergeOperations(DEFAULT_OPERATIONS, props.operations);
     const { getStoreConfigData, getProductDetailQuery } = operations;
     const { pathname } = useLocation();
