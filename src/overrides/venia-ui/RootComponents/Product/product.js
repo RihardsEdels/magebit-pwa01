@@ -6,6 +6,7 @@ import { useProduct } from '../../../peregrine/lib/talons/RootComponents/Product
 import ErrorView from '@magento/venia-ui/lib/components/ErrorView';
 import { StoreTitle, Meta } from '@magento/venia-ui/lib/components/Head';
 import ProductFullDetail from '../../components/ProductFullDetail/productFullDetail';
+
 import mapProduct from '@magento/venia-ui/lib/util/mapProduct';
 import ProductShimmer from '@magento/venia-ui/lib/RootComponents/Product/product.shimmer';
 
@@ -24,6 +25,8 @@ const Product = props => {
     });
 
     const { error, loading, product } = talonProps;
+
+    console.log(product);
 
     if (loading && !product)
         return <ProductShimmer productType={productType} />;

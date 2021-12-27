@@ -8,7 +8,6 @@ import { appendOptionsToPayload } from '@magento/peregrine/lib/util/appendOption
 import { findMatchingVariant } from '@magento/peregrine/lib/util/findMatchingProductVariant';
 import { isProductConfigurable } from '@magento/peregrine/lib/util/isProductConfigurable';
 import { isSupportedProductType as isSupported } from '@magento/peregrine/lib/util/isSupportedProductType';
-// import { deriveErrorMessage } from '../../util/deriveErrorMessage';
 import { deriveErrorMessage } from '@magento/peregrine/lib/util/deriveErrorMessage';
 
 import mergeOperations from '@magento/peregrine/lib/util/shallowMerge';

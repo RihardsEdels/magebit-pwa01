@@ -13,7 +13,9 @@ import Breadcrumbs from '@magento/venia-ui/lib/components/Breadcrumbs';
 import Button from '../../../../components/Button/button';
 import Carousel from '@magento/venia-ui/lib/components/ProductImageCarousel';
 import FormError from '@magento/venia-ui/lib/components/FormError';
-import { QuantityFields } from '../CartPage/ProductListing/quantity';
+// import { QuantityFields } from '../CartPage/ProductListing/quantity';
+import { QuantityFields } from '@magento/venia-ui/lib/components/CartPage/ProductListing/quantity';
+
 import RichContent from '@magento/venia-ui/lib/components/RichContent/richContent';
 import { ProductOptionsShimmer } from '@magento/venia-ui/lib/components/ProductOptions';
 import defaultClasses from './productFullDetail.module.css';
