@@ -2,11 +2,15 @@
     border-bottom: 1px solid rgb(var(--venia-global-color-border));
     padding-top: 1.9rem;
     padding-bottom: 1.75rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 @media (min-width: 1024px) {
     .root {
         border: 0;
+        align-items: flex-start;
     }
 }
 

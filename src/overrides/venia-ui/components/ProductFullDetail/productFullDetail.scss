@@ -253,8 +253,11 @@
 .quantityRoot {
     composes: root from '../CartPage/ProductListing/quantity.module.css';
     grid-template-columns: auto 4rem auto;
-    justify-content: start;
+    justify-content: center;
     margin-top: 5px;
+    @media (min-width: 1024px) {
+        justify-content: start;
+    }
 }
 
 .unavailableContainer {
