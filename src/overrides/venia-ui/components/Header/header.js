@@ -17,7 +17,6 @@ import { useStyle } from '@magento/venia-ui/lib/classify';
 import defaultClasses from './header.module.css';
 import StoreSwitcher from '@magento/venia-ui/lib/components/Header/storeSwitcher';
 import CurrencySwitcher from '@magento/venia-ui/lib/components/Header/currencySwitcher';
-// import MegaMenu from '@magento/venia-ui/lib/components/MegaMenu';
 import PageLoadingIndicator from '@magento/venia-ui/lib/components/PageLoadingIndicator';
 
 const SearchBar = React.lazy(() =>

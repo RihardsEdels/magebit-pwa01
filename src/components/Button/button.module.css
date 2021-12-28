@@ -1,12 +1,14 @@
+:root {
+    --buttonColor: #1f39ff;
+    --buttonColorFocus: #1c33e6;
+    --buttonColorHover: #5266ff;
+}
 .root {
     composes: root from '@magento/venia-ui/lib/components/clickable.module.css';
     --stroke: var(--venia-brand-color-1-700);
     background: none;
-    border-color: rgb(var(--stroke));
     border-radius: 10rem;
-    border-style: solid;
-    border-width: 2px;
-    background: #1f39ff;
+    background: var(--buttonColor);
     font-size: var(--venia-global-fontSize-100);
     font-weight: var(--venia-global-fontWeight-bold);
     line-height: 1.25rem;
@@ -25,7 +27,7 @@
         width: 689px;
         height: 58px;
         border-radius: 0;
-        background: #1f39ff;
+        background: var(--buttonColor);
         min-height: 0;
         font-weight: 600;
     }
@@ -42,11 +44,11 @@
 }
 
 .root:hover {
-    background: #5266ff;
+    background: var(--buttonColorHover);
 }
 
 .root:focus {
-    background: #1c33e6;
+    background: var(--buttonColorFocus);
 }
 
 .root:active {

@@ -26,7 +26,7 @@ const Product = props => {
 
     const { error, loading, product } = talonProps;
 
-    console.log(product);
+    console.log(talonProps);
 
     if (loading && !product)
         return <ProductShimmer productType={productType} />;

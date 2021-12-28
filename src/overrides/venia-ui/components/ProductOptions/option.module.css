@@ -1,6 +1,5 @@
 .root {
     border-bottom: 1px solid rgb(var(--venia-global-color-border));
-    /* margin: 0 1.5rem; */
     padding-top: 1.9rem;
     padding-bottom: 1.75rem;
 }
@@ -20,7 +19,7 @@
 }
 @media (min-width: 1024px) {
     .root {
-        width: 337px;
+        width: 50%;
     }
     .title {
         font-family: proxima-nova, sans-serif;

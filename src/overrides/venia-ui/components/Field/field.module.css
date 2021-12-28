@@ -1,3 +1,6 @@
+:root {
+    --borderColor: #dfe1e2;
+}
 .root {
     color: rgb(var(--venia-global-color-text));
     display: grid;
@@ -17,8 +20,8 @@
 
 .input {
     background: white;
-    border-top: 1px solid #dfe1e2;
-    border-bottom: 1px solid #dfe1e2;
+    border-top: 1px solid var(--borderColor);
+    border-bottom: 1px solid var(--borderColor);
 
     color: rgb(var(--venia-global-color-text));
     display: inline-flex;
@@ -30,16 +33,6 @@
     width: 58px;
     -webkit-appearance: none;
 }
-
-/* position: absolute;
-width: 58px;
-height: 58px;
-left: 1037px;
-top: 778px;
-
-background: #FFFFFF;
-border: 1px solid #DFE1E2;
-box-sizing: border-box; */
 
 .input:focus {
     box-shadow: -6px 6px rgb(var(--venia-brand-color-1-100));

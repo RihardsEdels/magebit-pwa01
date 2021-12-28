@@ -76,8 +76,6 @@
         width: 689px;
         height: 100px;
         display: flex;
-
-        // background: $backgroundColor;
     }
 }
 
@@ -183,6 +181,7 @@
 .quantity {
     composes: section;
     grid-area: quantity;
+    border: 0;
 }
 
 .quantityTitle {
@@ -209,14 +208,15 @@
     composes: section;
     grid-column: 1 / span 2;
     grid-row: fold / span 1;
+    border: 0;
 }
 
 @media (min-width: 1024px) {
     .description {
         align-self: stretch;
-        border-top-width: 1px;
         margin: 0;
         padding-right: 1.5rem;
+        margin-top: 18px;
     }
 }
 

@@ -1,11 +1,10 @@
+:root {
+    --borderColor: #dfe1e2;
+}
+
 .root {
-    /* --stroke: var(--venia-global-color-gray-600); */
-    /* text-align: center; */
     display: grid;
     grid-template-columns: auto;
-    /* grid-column-gap: 0.5rem; */
-    /* align-items: center;
-    justify-items: center; */
 }
 
 .wrap {
@@ -27,7 +26,7 @@
 .button {
     align-items: center;
     background-color: rgb(var(--venia-global-color-gray-50));
-    border: 1px solid #dfe1e2;
+    border: 1px solid var(--borderColor);
     display: inline-flex;
     height: 2rem;
     justify-content: center;
@@ -35,15 +34,6 @@
     width: 58px;
     height: 58px;
 }
-/* position: absolute;
-width: 58px;
-height: 58px;
-left: 980px;
-top: 778px;
-
-background: #FFFFFF;
-border: 1px solid #DFE1E2;
-box-sizing: border-box; */
 
 .button:hover {
     border: 2px solid rgb(var(--venia-global-color-gray-600));
@@ -79,6 +69,6 @@ box-sizing: border-box; */
 }
 
 .input {
-    composes: input from '../../TextInput/textInput.module.css';
+    composes: input from '@magento/venia-ui/lib/components/TextInput/textInput.module.css';
     text-align: center;
 }
