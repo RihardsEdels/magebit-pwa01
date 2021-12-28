@@ -5,13 +5,12 @@ import { gql, useQuery } from '@apollo/client';
 
 import { useStyle } from '@magento/venia-ui/lib/classify';
 import { fullPageLoadingIndicator } from '@magento/venia-ui/lib/components/LoadingIndicator';
-import Block from './block';
-import defaultClasses from './cmsBlock.scss';
+import Block from '@magento/venia-ui/lib/components/CmsBlock/block';
 import ErrorView from '@magento/venia-ui/lib/components/ErrorView';
 
-const CmsBlockGroup = props => {
+const CmsBlockRaw = props => {
     const { identifiers } = props;
-    const classes = useStyle(defaultClasses, props.classes);
+    const classes = useStyle(props.classes);
 
     const { loading, error, data } = useQuery(GET_CMS_BLOCKS, {
         variables: { identifiers },
@@ -52,14 +51,10 @@ const CmsBlockGroup = props => {
         />
     ));
 
-    return (
-        <div className={classes.root}>
-            <div className={classes.content}>{blocks}</div>
-        </div>
-    );
+    return <div className={classes.root}>{blocks}</div>;
 };
 
-CmsBlockGroup.propTypes = {
+CmsBlockRaw.propTypes = {
     children: func,
     classes: shape({
         block: string,
@@ -69,7 +64,7 @@ CmsBlockGroup.propTypes = {
     identifiers: oneOfType([string, array])
 };
 
-export default CmsBlockGroup;
+export default CmsBlockRaw;
 
 export const GET_CMS_BLOCKS = gql`
     query cmsBlocks($identifiers: [String]!) {

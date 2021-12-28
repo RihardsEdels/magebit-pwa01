@@ -13,13 +13,12 @@ import Breadcrumbs from '@magento/venia-ui/lib/components/Breadcrumbs';
 import Button from '../../../../components/Button/button';
 import Carousel from '@magento/venia-ui/lib/components/ProductImageCarousel';
 import FormError from '@magento/venia-ui/lib/components/FormError';
-// import { QuantityFields } from '../CartPage/ProductListing/quantity';
 import { QuantityFields } from '@magento/venia-ui/lib/components/CartPage/ProductListing/quantity';
 
 import RichContent from '@magento/venia-ui/lib/components/RichContent/richContent';
 import { ProductOptionsShimmer } from '@magento/venia-ui/lib/components/ProductOptions';
-import defaultClasses from './productFullDetail.module.css';
-import CmsBlock from '../CmsBlock/cmsBlock';
+import defaultClasses from './productFullDetail.scss';
+import Shipping from '../../../../components/Shipping/shipping';
 
 import Tabs from '../../../../components/Tabs/tabs';
 
@@ -44,11 +43,8 @@ const ERROR_FIELD_TO_MESSAGE_MAPPING = {
 const ProductFullDetail = props => {
     const { product } = props;
 
-    const [tabs, setTabs] = React.useState('tab1');
-
-    const handleTabs = e => {
-        setTabs(e.target.id);
-    };
+    const defaultTabLabels = ['Product description', 'Attributes'];
+    const [tabs, setTabs] = React.useState(defaultTabLabels[1]);
 
     const talonProps = useProductFullDetail({ product });
 
@@ -198,7 +194,8 @@ const ProductFullDetail = props => {
                 />
                 <section className={classes.options}>{options}</section>
                 <section className={classes.shipping_container}>
-                    <CmsBlock identifiers={'shipping'} />
+                    <Shipping />
+                    {/* <div className="icon" /> */}
                 </section>
 
                 <section className={classes.quantity}>
@@ -212,8 +209,12 @@ const ProductFullDetail = props => {
                     {cartActionContent}
                 </section>
                 <section className={classes.description}>
-                    <Tabs tabs={tabs} handleTabs={handleTabs} />
-                    {tabs === 'tab1' ? (
+                    <Tabs
+                        defaultTabLabels={defaultTabLabels}
+                        tabs={tabs}
+                        setTabs={setTabs}
+                    />
+                    {tabs === defaultTabLabels[0] ? (
                         <RichContent
                             html={productDetails.shortDescription.html}
                         />
