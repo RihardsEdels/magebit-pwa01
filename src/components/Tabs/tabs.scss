@@ -1,3 +1,5 @@
+@use "../../scss/vars";
+
 .tabs {
     display: flex;
     flex-direction: row;
@@ -13,8 +15,8 @@
     width: 182px;
     height: 58px;
 
-    background: #f4f5f5;
-    border: 1px solid #dfe1e2;
+    background: $backgroundColor;
+    border: 1px solid $borderColor;
     justify-content: center;
 }
 .descriptionTitle {
@@ -27,7 +29,6 @@
     width: 171px;
     height: 58px;
 
-    background: #ffffff;
-    border: 1px solid #dfe1e2;
+    border: 1px solid $borderColor;
     justify-content: center;
 }

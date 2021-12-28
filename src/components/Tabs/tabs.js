@@ -1,7 +1,7 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
 
-import classes from './tabs.module.css';
+import classes from './tabs.scss';
 
 export default function Tabs({ defaultTabLabels, tabContent }) {
     const [tabs, setTabs] = React.useState(defaultTabLabels[1]);
