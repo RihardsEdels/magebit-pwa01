@@ -162,14 +162,21 @@ const ProductFullDetail = props => {
         </div>
     );
 
-    const defaultTabLabels = ['Product description', 'Attributes'];
     const tabContent = [
-        <RichContent html={productDetails.shortDescription.html} />,
-        <ul>
-            <li>attr1: {productDetails.attr1}</li>
-            <li>attr2: {productDetails.attr2}</li>
-            <li>attr3: {productDetails.attr3}</li>
-        </ul>
+        {
+            label: 'Product Description',
+            content: <RichContent html={productDetails.shortDescription.html} />
+        },
+        {
+            label: 'Attributes',
+            content: (
+                <ul>
+                    <li>attr1: {productDetails.attr1}</li>
+                    <li>attr2: {productDetails.attr2}</li>
+                    <li>attr3: {productDetails.attr3}</li>
+                </ul>
+            )
+        }
     ];
 
     return (
@@ -216,10 +223,7 @@ const ProductFullDetail = props => {
                     {cartActionContent}
                 </section>
                 <section className={classes.description}>
-                    <Tabs
-                        defaultTabLabels={defaultTabLabels}
-                        tabContent={tabContent}
-                    />
+                    <Tabs tabContent={tabContent} />
                 </section>
             </Form>
         </Fragment>
