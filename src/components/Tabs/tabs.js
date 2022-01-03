@@ -3,32 +3,34 @@ import { FormattedMessage } from 'react-intl';
 
 import classes from './tabs.scss';
 
-export default function Tabs({ defaultTabLabels, tabContent }) {
-    const [tabs, setTabs] = React.useState(defaultTabLabels[1]);
+export default function Tabs({ tabContent }) {
+    const [activeTab, setActiveTab] = React.useState(0);
 
     return (
         <div>
             <div className={classes.tabs}>
-                {defaultTabLabels.map(tab => (
+                {tabContent.map((tab, idx) => (
                     <span
-                        onClick={e => setTabs(e.target.id)}
-                        onKeyDown={e => setTabs(e.target.id)}
-                        role="button"
-                        Tabs
-                        tabIndex={0}
+                        key={tab.label}
                         className={
-                            tabs === tab
+                            activeTab === idx
                                 ? classes.descriptionTitleactive
                                 : classes.descriptionTitle
                         }
-                        id={tab}
+                        onClick={() => setActiveTab(idx)}
+                        onKeyDown={() => undefined}
+                        role="button"
+                        tabIndex={idx}
                     >
-                        <FormattedMessage id={tab} defaultMessage={tab} />
+                        <FormattedMessage
+                            id={tab.label}
+                            defaultMessage={tab.label}
+                        />
                     </span>
                 ))}
             </div>
-            {defaultTabLabels.map((label, idx) =>
-                label === tabs ? tabContent[idx] : null
+            {tabContent.map((tab, idx) =>
+                idx === activeTab ? tab.content : null
             )}
         </div>
     );
