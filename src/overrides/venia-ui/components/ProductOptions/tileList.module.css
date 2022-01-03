@@ -1,0 +1,13 @@
+.root {
+    display: grid;
+    gap: 1rem;
+    grid-auto-flow: column;
+    grid-template-columns: repeat(auto-fit, minmax(3rem, max-content));
+}
+
+@media (min-width: 1024px) {
+    .root {
+        gap: 0;
+        border: 0;
+    }
+}

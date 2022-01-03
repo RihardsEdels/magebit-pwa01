@@ -1,0 +1,15 @@
+$color-input: #ff495b;
+$color-welcome: #ff9c1a;
+
+.input-name {
+    padding: 15px;
+    color: $color-input;
+}
+
+.welcome {
+    color: $color-welcome;
+
+    &:hover {
+        color: $color-input;
+    }
+}

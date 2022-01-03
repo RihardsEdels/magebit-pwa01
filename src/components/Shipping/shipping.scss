@@ -1,0 +1,54 @@
+:global(.shipping-container) {
+    background-color: $backgroundColor;
+    width: 375px;
+    height: 100px;
+    display: flex;
+    :global(.shipping-option):first-child {
+        border-right: 1px solid $borderColor;
+    }
+}
+
+:global(.shipping-option) {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+:global(.delivery-time) {
+    font-family: $mainFont;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+:global(.delivery-price) {
+    font-family: $mainFont;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+:global(.delivery-terms) {
+    display: flex;
+    flex-direction: column;
+    margin-left: 25px;
+}
+
+@media (min-width: 1024px) {
+    :global(.shipping-container) {
+        width: 689px;
+    }
+
+    :global(.shipping-icon) {
+        background-image: url(./ic_delivery.svg);
+        background-repeat: no-repeat;
+        width: 40px;
+        height: 30px;
+    }
+}

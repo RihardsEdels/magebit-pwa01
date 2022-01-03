@@ -1,0 +1,6 @@
+.root {
+    composes: root from '@magento/venia-ui/lib/components/clickable.module.css';
+    height: 3rem;
+    width: 3rem;
+    margin-left: 20px;
+}
